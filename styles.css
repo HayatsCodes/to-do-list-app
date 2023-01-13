@@ -1,0 +1,165 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #F4EDED;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.main-container {
+    filter: blur(.4px);
+    height: 600px;
+    width: 600px;
+    background-color: #6DB1BF;
+    color: #595959;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.header {
+    letter-spacing: 2px;
+    word-spacing: -2px;
+    z-index: 3000;
+}
+
+.text-container{
+    margin-top: 50px;
+}
+
+.text-container input,
+.edit-container input,
+.btn {
+    height: 45px;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    background-color: #F4EDED;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.text-container input, 
+.edit-container input{
+    box-sizing: border-box;
+    width: 80%;
+}
+
+.btn {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.btn:hover {
+    filter: brightness(80%);
+    background-color: #6DB1BF;
+}
+
+.btn:active {
+    transform: translateY(2px);
+}
+
+.items-container {
+    margin-top: 20px;
+}
+
+.items-list {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 10px;
+    list-style: none;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000;
+}
+
+
+.fas {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.fas:last-of-type {
+    margin-right: 10px;
+}
+
+.fas:hover {
+    filter: brightness(80%);
+}
+
+.fa-pen:hover {
+    filter: brightness(200%);
+}
+
+.fas:active {
+    transform: translateY(2px);
+}
+
+.fa-check {
+    color: #379634;
+}
+
+.fa-pen {
+    color: #03045E;
+}
+
+.fa-trash {
+    color: red;
+}
+
+.items-container {
+    margin-left: -20px;
+}
+
+
+.clear-items {
+    box-sizing: border-box;
+    position: absolute;
+    top: 85%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+p {
+    text-align:  center;
+    color: red;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 500px){
+    body {
+        overflow: hidden;
+    }
+    .text-container {
+        margin-top: 0;
+    }
+    .text-container .btn {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+
+    .items-list,
+    .fas,
+    p {
+        font-size: 18px;
+    }
+
+    .clear-items {
+        top: 83%;
+    }
+    
+}
