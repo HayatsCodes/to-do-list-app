@@ -51,6 +51,12 @@ function addItemsToList() {
     }
 }
 
+function setItemToStorage() {
+    if (localStorage.getItem("toDoItems")) {
+        localStorage.setItem('toDoItems', JSON.stringify((itemsWrapper.innerHTML)));
+    }
+}
+
 
 function markItemAsChecked(e) {
     const textSpan = e.target.parentNode.previousElementSibling;
@@ -78,6 +84,7 @@ function editItem(e) {
         } else {
             textSpan.setAttribute("contenteditable", "false");
             textSpan.style.caretColor = 'black';
+            setItemToStorage();
         }
     });
 }
@@ -86,10 +93,8 @@ function deleteItem(e) {
     const li = e.target.parentNode.parentNode;
     li.remove();
     listsInItemsWrapper--;
-    if (localStorage.getItem("toDoItems")) {
-        localStorage.setItem('toDoItems', JSON.stringify((itemsWrapper.innerHTML)));
-        localStorage.setItem('listsInItemsWrapper', JSON.stringify((listsInItemsWrapper)));
-    }
+    setItemToStorage();
+    localStorage.setItem('listsInItemsWrapper', JSON.stringify((listsInItemsWrapper)));
     retrieveFromStorage();
     let p = itemsWrapper.querySelector('p');
     if (p) {
@@ -102,6 +107,7 @@ function clearAllItems() {
     listsInItemsWrapper = 0;
     localStorage.clear();
 }
+
 
 // Add Events Listener
 addItem.addEventListener('click', addItemsToList);
